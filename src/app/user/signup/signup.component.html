@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="signup-form">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+		<h2>Register</h2>
+		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
+        <div class="form-group">
+			<div class="row">
+                <div class="col-xs-6"><input type="text" class="form-control" ngModel name="firstName" placeholder="First Name" required #first="ngModel"> 
+                <span class="help-block" *ngIf="!first.valid && first.touched">Please Enter Name</span>
+                </div>
+				<div class="col-xs-6"><input type="text" class="form-control"  ngModel name="lastName" placeholder="Last Name" required></div>
+			</div>        	
+        </div>
+        <div class="form-group">
+        	<input type="email" class="form-control" ngModel name="email" placeholder="Email" required email>
+        </div>
+        <div class="form-group">
+        	<input type="text" class="form-control" ngModel name="mobile" placeholder="Mobile" required >
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" ngModel  name="password" placeholder="Password" required>
+        </div>
+		<div class="form-group">
+            <input type="text" class="form-control" ngModel  name="apiKey" placeholder="API Key" required>
+        </div>        
+        <div class="form-group">
+			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+		</div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="!form.valid">Register Now</button>
+        </div>
+    </form>
+	<div class="text-center clearfix cursorPointer" routerLink="/login">Already have an account? <a>Sign in</a></div>
+</div>
+</body>
+</html>                            
